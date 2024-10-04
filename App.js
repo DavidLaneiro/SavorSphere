@@ -9,11 +9,16 @@ import { NavigationContainer } from "@react-navigation/native";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+// Create Bottom Tabs
 function Tabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="FoodCategoryList" component={FoodCategoryList}/>
-      <Tab.Screen name="Favorites" component={FavoritesList}/>
+      <Tab.Screen name="FoodCategoryList" component={FoodCategoryList} options={{
+        title: 'Food Categories'
+      }}/>
+      <Tab.Screen name="Favorites" component={FavoritesList} options={{
+        title: 'Favorites'
+      }}/>
     </Tab.Navigator>
   );
 }
