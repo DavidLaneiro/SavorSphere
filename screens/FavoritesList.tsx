@@ -1,6 +1,6 @@
 import { Text } from "react-native";
 
-function FavoritesList(){
+function FavoritesList() {
     return <Text>FavoritesList Screen!</Text>
 }
 
