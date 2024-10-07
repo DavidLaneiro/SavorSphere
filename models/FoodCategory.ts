@@ -6,7 +6,7 @@ export interface FoodCategory {
 }
 
 // For now static data, then fetch the data from DB
-export const foodCategories: FoodCategory[] = [
+export const FoodCategories: FoodCategory[] = [
     {
         "idCategory": "1",
         "strCategory": "Beef",
