@@ -1,4 +1,4 @@
-import { FlatList, ScrollView, StyleSheet, Text } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { FoodCategories, FoodCategory } from "../models/FoodCategory";
 import FoodCategoryItem from "../components/FoodCategoryItem";
 
@@ -8,17 +8,22 @@ function renderFoodCategory({ item }: { item: FoodCategory }) {
 
 
 function FoodCategoryList() {
-    return <ScrollView style={styles.scrollContainer}>
-        <FlatList data={FoodCategories} renderItem={renderFoodCategory} keyExtractor={item => item.idCategory} />
-    </ScrollView>
+    return <View style={styles.container}>
+        <FlatList style={styles.list} data={FoodCategories} renderItem={renderFoodCategory} keyExtractor={item => item.idCategory} />
+    </View>
 }
 
 export default FoodCategoryList;
 
 const styles = StyleSheet.create({
-    scrollContainer: {
-        flex: 1
+    container: {
+       flex: 1,
     },
+
+    list:{
+       flexDirection: 'column'
+    }
+
 
 
 }

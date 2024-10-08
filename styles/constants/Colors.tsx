@@ -6,8 +6,7 @@ interface ColorPalete {
     orange500: string;
 }
 
-
-export const Colors : ColorPalete = {
+export const Colors: ColorPalete = {
     green300: '#606C38',
     green500: '#283618',
     white500: '#FEFAE0',
