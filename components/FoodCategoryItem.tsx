@@ -10,9 +10,15 @@ interface FoodCategoryItemProps {
 
 function FoodCategoryItem({ category }: FoodCategoryItemProps) {
     return <View style={styles.container}>
-        <Image style={styles.image} source={{ uri: category.strCategoryThumb }} />
-        <Text style={styles.title}>{category.strCategory}</Text>
-        <Text style={styles.description}>{category.strCategoryDescription}</Text>
+        <View style={styles.imageContainer}>
+            <Image style={styles.image} source={{ uri: category.strCategoryThumb }} />
+        </View>
+        <View style={styles.categoryContainer}>
+            <Text style={styles.title}>{category.strCategory}</Text>
+        </View>
+        <View style={styles.descriptionContainer}>
+            <Text style={styles.description}>{category.strCategoryDescription}</Text>
+        </View>
     </View>
 }
 
@@ -22,30 +28,57 @@ const styles = StyleSheet.create({
 
     container: {
         borderColor: Colors.orange500,
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: 20,
         alignItems: 'center',
         margin: 10,
-        padding: 12,
+        paddingHorizontal: 0,
+        paddingVertical: 0,
+        backgroundColor: 'white',
+        elevation: 4,
+        shadowColor: "black",
+        shadowOpacity: 0.25,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 8,
+    },
+    imageContainer: {
+        width: '100%',
+        height: 120,
+        justifyContent: 'center',
+        overflow: 'hidden',
     },
     image: {
         width: '100%',
-        height: 200
+        height: '100%',
+        resizeMode: 'cover'
     },
-    
+
     title: {
         fontFamily: 'arial',
-        fontSize: 18,
+        fontSize: 16,
         paddingVertical: 5,
-        color: Colors.orange500,
-        fontWeight: 'bold'
+        color: Colors.white500,
+        fontWeight: 'bold',
+        textAlign: 'center'
     },
     description: {
         fontFamily: 'arial',
         fontSize: 14,
-        paddingVertical: 5,
-        color: Colors.green300,
-        fontWeight: 'bold'
+        color: Colors.white500,
+        fontWeight: 'regular',
+        textAlign: 'center',
+    },
+    categoryContainer:{
+        width: '100%',
+        backgroundColor: Colors.orange500
+    },
+    descriptionContainer:{
+        padding: 20,
+        backgroundColor: Colors.orange300,
+        width: '100%',
+        borderBottomEndRadius: 20,
+        borderBottomStartRadius: 20,
+
     }
 
 })
