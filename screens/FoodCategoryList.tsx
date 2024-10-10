@@ -7,10 +7,10 @@ function renderFoodCategory({ item }: { item: FoodCategory }) {
     return <FoodCategoryItem category={item} />
 }
 
-
 function FoodCategoryList() {
     return <View style={styles.container}>
-        <FlatList data={FoodCategories} renderItem={renderFoodCategory} keyExtractor={item => item.idCategory} />
+        <FlatList numColumns={3} data={FoodCategories} renderItem={renderFoodCategory} keyExtractor={item => item.idCategory} 
+      />
     </View>
 }
 
@@ -19,7 +19,7 @@ export default FoodCategoryList;
 const styles = StyleSheet.create({
     container: {
        flex: 1,
-       backgroundColor: Colors.white500
+       backgroundColor: Colors.white500,
     },
 }
 )

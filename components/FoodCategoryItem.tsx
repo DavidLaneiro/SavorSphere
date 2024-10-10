@@ -16,9 +16,6 @@ function FoodCategoryItem({ category }: FoodCategoryItemProps) {
         <View style={styles.categoryContainer}>
             <Text style={styles.title}>{category.strCategory}</Text>
         </View>
-        <View style={styles.descriptionContainer}>
-            <Text style={styles.description}>{category.strCategoryDescription}</Text>
-        </View>
     </View>
 }
 
@@ -27,13 +24,19 @@ export default FoodCategoryItem;
 const styles = StyleSheet.create({
 
     container: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    imageContainer: {
+        height: 100,
+        width: 100,
+        overflow: 'hidden',
         borderColor: Colors.orange500,
         borderWidth: 1,
         borderRadius: 20,
         alignItems: 'center',
         margin: 10,
-        paddingHorizontal: 0,
-        paddingVertical: 0,
         backgroundColor: 'white',
         elevation: 4,
         shadowColor: "black",
@@ -41,44 +44,22 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 8,
     },
-    imageContainer: {
-        width: '100%',
-        height: 120,
-        justifyContent: 'center',
-        overflow: 'hidden',
-    },
     image: {
         width: '100%',
         height: '100%',
-        resizeMode: 'cover'
+        resizeMode: 'contain'
     },
 
     title: {
         fontFamily: 'arial',
         fontSize: 16,
         paddingVertical: 5,
-        color: Colors.white500,
+        color: Colors.orange500,
         fontWeight: 'bold',
         textAlign: 'center'
     },
-    description: {
-        fontFamily: 'arial',
-        fontSize: 14,
-        color: Colors.white500,
-        fontWeight: 'regular',
-        textAlign: 'center',
-    },
+
     categoryContainer:{
         width: '100%',
-        backgroundColor: Colors.orange500
-    },
-    descriptionContainer:{
-        padding: 20,
-        backgroundColor: Colors.orange300,
-        width: '100%',
-        borderBottomEndRadius: 20,
-        borderBottomStartRadius: 20,
-
     }
-
 })
