@@ -3,13 +3,15 @@ import { FoodCategories, FoodCategory } from "../models/FoodCategory";
 import FoodCategoryItem from "../components/FoodCategoryItem";
 import { Colors } from "../styles/constants/Colors";
 
+const numColumns = 2
+
 function renderFoodCategory({ item }: { item: FoodCategory }) {
-    return <FoodCategoryItem category={item} />
+    return <FoodCategoryItem category={item} numColumns={numColumns} />
 }
 
 function FoodCategoryList() {
     return <View style={styles.container}>
-        <FlatList numColumns={3} data={FoodCategories} renderItem={renderFoodCategory} keyExtractor={item => item.idCategory} 
+        <FlatList numColumns={numColumns} data={FoodCategories} renderItem={renderFoodCategory} keyExtractor={item => item.idCategory} 
       />
     </View>
 }
@@ -20,6 +22,7 @@ const styles = StyleSheet.create({
     container: {
        flex: 1,
        backgroundColor: Colors.white500,
+       marginVertical: 10,
     },
 }
 )
