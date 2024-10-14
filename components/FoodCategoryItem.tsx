@@ -23,13 +23,15 @@ export default FoodCategoryItem;
 const styles = StyleSheet.create({
 
     container: {
+        borderColor: Colors.secondary300,
+        borderWidth: 2,
         marginLeft: 10,
         marginTop: 10,
         height: 150,
         borderRadius: 10,
         elevation: 4,
         // iOS needs a background color to apply Shadow
-        backgroundColor: Colors.primary500,
+        backgroundColor: Colors.accent300,
         shadowColor: Colors.dark300,
         shadowOpacity: 0.25,
         shadowOffset: { width: 0, height: 2 },
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
-        backgroundColor: "white"
+        backgroundColor: "white",
     },
     image: {
         width: '80%',
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 16,
-        color: "white",
+        color: Colors.dark300,
         fontWeight: 'bold',
         textAlign: 'center',
     },
