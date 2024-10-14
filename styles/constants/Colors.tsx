@@ -1,15 +1,15 @@
 interface ColorPalete {
-    green300: string;
-    green500: string;
-    white500: string;
-    orange300: string;
-    orange500: string;
+    primary500: string;
+    secondary300: string;
+    accent300: string;
+    dark300: string;
+    error300: string;
 }
 
 export const Colors: ColorPalete = {
-    green300: '#606C38',
-    green500: '#283618',
-    white500: '#FEFAE0',
-    orange300: '#DDA15E',
-    orange500: '#BC6C25'
+    primary500: '#243E36',
+    secondary300: '#7CA982',
+    accent300: '#F1F7ED',
+    dark300: '#333333',
+    error300: '#C6D57E'
 }

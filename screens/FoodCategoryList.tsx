@@ -21,8 +21,8 @@ export default FoodCategoryList;
 const styles = StyleSheet.create({
     container: {
        flex: 1,
-       backgroundColor: Colors.white500,
-       marginVertical: 10,
+       backgroundColor: Colors.accent300,
+       
     },
 }
 )

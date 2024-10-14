@@ -6,7 +6,7 @@ import { FoodCategoryItemProps } from "../models/FoodCategoryItemProps";
 function FoodCategoryItem({ category, numColumns }: FoodCategoryItemProps) {
 
     const windowWidth = Dimensions.get('window').width;
-    const itemWidth = windowWidth / numColumns - 20; 
+    const itemWidth = windowWidth / numColumns - 15; 
 
     return <View style={[styles.container, {width: itemWidth}]}>
         <View style={styles.imageContainer}>
@@ -23,13 +23,14 @@ export default FoodCategoryItem;
 const styles = StyleSheet.create({
 
     container: {
-        margin: 10,
+        marginLeft: 10,
+        marginTop: 10,
         height: 150,
         borderRadius: 10,
         elevation: 4,
         // iOS needs a background color to apply Shadow
-        backgroundColor: "white",
-        shadowColor: "black",
+        backgroundColor: Colors.primary500,
+        shadowColor: Colors.dark300,
         shadowOpacity: 0.25,
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 8,
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderTopLeftRadius: 8,
         borderTopRightRadius: 8,
-        backgroundColor: Colors.orange500
+        backgroundColor: "white"
     },
     image: {
         width: '80%',
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 16,
-        color: Colors.orange500,
+        color: "white",
         fontWeight: 'bold',
         textAlign: 'center',
     },

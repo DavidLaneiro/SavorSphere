@@ -5,7 +5,7 @@ import FoodCategoryList from "./screens/FoodCategoryList";
 import FavoritesList from "./screens/FavoritesList";
 import { NavigationContainer } from "@react-navigation/native";
 import { Colors } from "./styles/constants/Colors";
-import {FontAwesome6
+import {MaterialCommunityIcons
 } from "@expo/vector-icons";
 
 // Create Navigators
@@ -17,11 +17,11 @@ function Tabs() {
   return (
     <Tab.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: Colors.orange300 },
-        headerTintColor: Colors.white500,
-        tabBarStyle: { backgroundColor: Colors.orange300 },
-        tabBarActiveTintColor: Colors.white500,
-        tabBarInactiveTintColor: Colors.green500,
+        headerStyle: { backgroundColor: Colors.secondary300 },
+        headerTintColor: "white",
+        tabBarStyle: { backgroundColor: Colors.primary500 },
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: Colors.secondary300,
       }}
     >
       <Tab.Screen
@@ -29,7 +29,7 @@ function Tabs() {
         component={FoodCategoryList}
         options={{
           title: "Food Categories",
-          tabBarIcon: ({ color, size }) => (<FontAwesome6 name="bowl-food" color={color} size={size} />),
+          tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="food-fork-drink" color={color} size={size} />),
         }}
       />
       <Tab.Screen
@@ -37,7 +37,7 @@ function Tabs() {
         component={FavoritesList}
         options={{
           title: "Favorites",
-          tabBarIcon: ({color, size }) => (<FontAwesome6 name="star" color={color} size={size} />)
+          tabBarIcon: ({color, size }) => (<MaterialCommunityIcons name="star" color={color} size={size} />)
         }}
       />
     </Tab.Navigator>
