@@ -12,10 +12,10 @@ function renderFoodCategory({ item }: { item: FoodCategory }) {
 
 function FoodCategoryList() {
     return <View style={styles.container}>
-        <View>
+        <View style={styles.filterContainer}>
             <FilterTextField></FilterTextField>
         </View>
-        <View>
+        <View style={styles.listContainer}>
             <FlatList numColumns={numColumns} data={FoodCategories} renderItem={renderFoodCategory} keyExtractor={item => item.idCategory} 
             />
         </View>
@@ -29,5 +29,10 @@ const styles = StyleSheet.create({
        flex: 1,
        backgroundColor: Colors.accent300,
     },
+    filterContainer: {
+    },
+    listContainer: {
+        flex: 1
+    }
 }
 )

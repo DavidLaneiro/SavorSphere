@@ -1,18 +1,33 @@
-import { View, TextInput, StyleSheet } from "react-native";
+import { View, TextInput, StyleSheet, Keyboard } from "react-native";
 import { Colors } from "../styles/constants/Colors";
-import { Ionicons } from "@expo/vector-icons";
+import IconButton from "./IconButton";
+import { useState } from "react";
 
+function searchHandler() {
+    console.log("Search handler pressed.")
+    Keyboard.dismiss();
+}
 
 function FilterTextField() {
+
+    const [text, setText] = useState("")
+    const placeholder = "Enter your food category here"
+
+    function deleteTextHandler() {
+        console.log("Delete handler pressed.")
+        setText("")
+    }
+
+
     return <View style={styles.container}>
         <View style={styles.searchIconContainer}>
             {/* Make custom component for this */}
-            <Ionicons name={"search"} color={Colors.primary500} size={24} />
+            <IconButton name={"search"} color={Colors.primary500} size={24} onPress={searchHandler} />
         </View>
-        <TextInput style={styles.textField} />
+        <TextInput value={text} onChangeText={setText} style={styles.textField} placeholder={placeholder} />
         <View style={styles.deleteIconContainer}>
             {/* Make custom component for this */}
-            <Ionicons name={"close"} color={Colors.primary500} size={24} />
+            <IconButton name={"close"} color={Colors.primary500} size={24} onPress={deleteTextHandler} />
         </View>
     </View>
 }
@@ -23,7 +38,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         borderColor: Colors.primary500,
-        borderWidth: 3,
+        borderWidth: 2,
         height: 50,
         borderRadius: 10,
         elevation: 4,
