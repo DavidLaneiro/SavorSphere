@@ -5,8 +5,11 @@ import FoodCategoryList from "./screens/FoodCategoryList";
 import FavoritesList from "./screens/FavoritesList";
 import { NavigationContainer } from "@react-navigation/native";
 import { Colors } from "./styles/constants/Colors";
-import {MaterialCommunityIcons
+import {
+  MaterialCommunityIcons
 } from "@expo/vector-icons";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
 // Create Navigators
 const Stack = createNativeStackNavigator();
@@ -37,7 +40,7 @@ function Tabs() {
         component={FavoritesList}
         options={{
           title: "Favorites",
-          tabBarIcon: ({color, size }) => (<MaterialCommunityIcons name="star" color={color} size={size} />)
+          tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="star" color={color} size={size} />)
         }}
       />
     </Tab.Navigator>
@@ -46,9 +49,11 @@ function Tabs() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <StatusBar style="light" />
-      <Tabs />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <StatusBar style="light" />
+        <Tabs />
+      </NavigationContainer>
+    </Provider>
   );
 }
