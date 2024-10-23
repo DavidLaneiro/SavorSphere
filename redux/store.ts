@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import foodCategoriesReducer from "./FoodCategoriesSlice"
+import foodCategoriesSliceReducer from "./FoodCategoriesSlice"
 
 export const store = configureStore({
     reducer: {
-        foodCategories : foodCategoriesReducer
+        foodCategoriesSlice : foodCategoriesSliceReducer
     },
   });
   
 
-  export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>;

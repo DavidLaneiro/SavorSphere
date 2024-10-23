@@ -4,7 +4,7 @@ import FoodCategoryItem from "../components/FoodCategoryItem";
 import { Colors } from "../styles/constants/Colors";
 import FilterTextField from "../components/FilterTextField";
 import {useDispatch, useSelector } from "react-redux";
-import foodCategoriesSlice, { setCategories } from '../redux/FoodCategoriesSlice';
+import { setCategories } from '../redux/FoodCategoriesSlice';
 import { RootState } from "../redux/store";
 import { useEffect } from "react";
 
@@ -22,7 +22,7 @@ function FoodCategoryList() {
         dispatch(setCategories(FoodCategories))
     }, []);
 
-    const foodCategories = useSelector((state: RootState) => state.foodCategories.foodCategories);
+    const foodCategories = useSelector((state: RootState) => state.foodCategoriesSlice.foodCategoriesList);
 
     return <View style={styles.container}>
         <View style={styles.filterContainer}>

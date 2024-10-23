@@ -5,14 +5,14 @@ import { FoodCategory } from "../models/FoodCategory";
 const foodCategoriesSlice = createSlice({
   name: "foodCategories",
   initialState: {
-    foodCategories: [],
+    foodCategoriesList: [],
   } as FoodCategoriesState,
   reducers: {
-    setCategories: (state, action: PayloadAction<FoodCategory[]>) => {
-      state.foodCategories = action.payload;
+    setFoodCategories: (state, action: PayloadAction<FoodCategory[]>) => {
+      state.foodCategoriesList = action.payload;
     }
   },
 });
 
-export const setCategories = foodCategoriesSlice.actions.setCategories;
+export const setCategories = foodCategoriesSlice.actions.setFoodCategories;
 export default foodCategoriesSlice.reducer;
