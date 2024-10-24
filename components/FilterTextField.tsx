@@ -2,9 +2,7 @@ import { View, TextInput, StyleSheet, Keyboard } from "react-native";
 import { Colors } from "../styles/constants/Colors";
 import IconButton from "./IconButton";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import {setFilteredFoodCategories } from "../redux/FoodCategoriesSlice";
+import { FilterTextFieldProps } from '../models/FilterTextFieldProps';
 
 function searchHandler() {
     console.log("Search handler pressed.")
@@ -12,32 +10,21 @@ function searchHandler() {
 }
 
 
-function FilterTextField() {
+function FilterTextField({ placeholderText, deleteText, onChangeText }: FilterTextFieldProps) {
 
     const [text, setText] = useState<string>("")
-    const placeholder = "Enter your food category here"
-    const dispatch = useDispatch();
-    const foodCategories = useSelector((state: RootState) => state.foodCategoriesSlice.foodCategoriesList)
+    const placeholder = placeholderText
 
     function deleteTextHandler() {
-        console.log("Delete handler pressed.")
-        setText("")
-        dispatch(setFilteredFoodCategories(foodCategories))
+        console.log("Delete handler pressed.");
+        setText("");
+        deleteText();
     }
 
     function onChangeTextHandler(newText: string) {
         console.log("The search bar text has changed to: ", newText)
         setText(newText)
-
-        if (newText === ""){
-            dispatch(setFilteredFoodCategories(foodCategories))
-            return;
-        }
-
-        const filteredCategories = foodCategories.filter(foodCategory => foodCategory.strCategory.toLowerCase().trim().includes(newText.toLowerCase().trim()))
-
-        dispatch(setFilteredFoodCategories(filteredCategories))
-
+        onChangeText(newText);
     }
 
     return <View style={styles.container}>

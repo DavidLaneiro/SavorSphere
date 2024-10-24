@@ -8,6 +8,7 @@ import { setFoodCategories } from '../redux/FoodCategoriesSlice';
 import { RootState } from "../redux/store";
 import { useEffect } from "react";
 import { useHeaderHeight } from "@react-navigation/elements"
+import {setFilteredFoodCategories } from "../redux/FoodCategoriesSlice";
 
 const numColumns = 2
 
@@ -17,18 +18,38 @@ function renderFoodCategory({ item }: { item: FoodCategory }) {
 
 function FoodCategoryList() {
 
+    // Variables 
     const headerHeight = useHeaderHeight()
     const dispatch = useDispatch();
+
+    // All categories
+    const foodCategories = useSelector((state: RootState) => state.foodCategoriesSlice.foodCategoriesList)
+
+    // Filtered Categories
+    const filteredFoodCategories = useSelector((state: RootState) => state.foodCategoriesSlice.foodCategoriesFilteredList);
+
+    function deleteText(){
+        dispatch(setFilteredFoodCategories(foodCategories))
+    }
+
+    function onChangeText(newText : string){
+        if (newText === ""){
+            dispatch(setFilteredFoodCategories(foodCategories))
+            return;
+        }
+
+        const filteredCategories = foodCategories.filter(foodCategory => foodCategory.strCategory.toLowerCase().trim().includes(newText.toLowerCase().trim()))
+
+        dispatch(setFilteredFoodCategories(filteredCategories))
+    }
 
     useEffect(() => {
         dispatch(setFoodCategories(FoodCategories))
     }, []);
 
-    const filteredFoodCategories = useSelector((state: RootState) => state.foodCategoriesSlice.foodCategoriesFilteredList);
-
     return <View style={styles.container}>
         <View>
-            <FilterTextField></FilterTextField>
+            <FilterTextField placeholderText={"Enter your food category here"} deleteText={deleteText} onChangeText={onChangeText}/>
         </View>
         <KeyboardAvoidingView style={styles.listContainer} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={Platform.OS === "ios" ? headerHeight : 0}>
             <FlatList numColumns={numColumns} data={filteredFoodCategories} renderItem={renderFoodCategory} keyExtractor={item => item.idCategory}
